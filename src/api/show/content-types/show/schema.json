@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shows",
+  "info": {
+    "singularName": "show",
+    "pluralName": "shows",
+    "displayName": "show",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "date": {
+      "type": "datetime",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "minPrice": {
+      "type": "integer",
+      "required": true,
+      "default": 1000,
+      "pluginOptions": {}
+    },
+    "maxPrice": {
+      "type": "integer",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "buyLink": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "shows"
+    },
+    "title": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true
+    }
+  }
+}
