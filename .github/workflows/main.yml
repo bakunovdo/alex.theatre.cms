@@ -4,8 +4,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up SSH key
         run: |
@@ -15,10 +15,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -p 22 ${{ vars.ARTIFACT_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Test
+      - name: Pull and start
         run: |
-          ssh user@${{ vars.ARTIFACT_HOST }} "echo $$SHELL"
-
-      # - name: Pull and start
-      #   run: |
-      #     ssh user@${{ vars.ARTIFACT_HOST }} "source ~/.nvm/nvm.sh && cd cms && git pull && npm install && npm run build && pm2 restart cms"
+          ssh user@${{ vars.ARTIFACT_HOST }} "source ~/.nvm/nvm.sh && cd cms && git pull && npm install && npm run build && pm2 restart cms"
