@@ -10,7 +10,7 @@
   "scripts": {
     "build": "strapi build",
     "develop": "strapi develop",
-    "pm2:start": "pm2 start npm --name cms -i 2 --log-date-format 'YY-MM-DD HH:mm:ss' -- start",
+    "pm2:start": "pm2 start npm --name cms --log-date-format 'YY-MM-DD HH:mm:ss' -- start",
     "start": "strapi start",
     "strapi": "strapi"
   },
